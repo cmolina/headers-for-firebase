@@ -1,0 +1,16 @@
+{
+    "hosting": {
+        "public": "_site",
+        "headers": [
+            {
+                "source": "/existing-source.html",
+                "headers": [
+                    {
+                        "key": "X-Robots-Tag",
+                        "value": "noindex"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,5 +1,8 @@
 import { expect } from "chai";
-import { convertHeadersToFirebaseArray } from "../src";
+import { copyFile, readFile, mkdtemp, rm } from "node:fs/promises";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
+import { convertHeadersToFirebaseArray, addHeadersToFirebaseConfigFile } from "../src";
 import outdent from "outdent";
 
 describe("convertHeadersToFirebaseArray", () => {
@@ -102,4 +105,50 @@ describe("convertHeadersToFirebaseArray", () => {
 
 function createTargetFor(source: string, ...headers: { key: string, value: string }[]) {
     return { source, headers };
+}
+
+describe("addHeadersToFirebaseConfigFile", () => {
+    let tempDir: string;
+    beforeEach(async () => {
+        tempDir = await mkdtemp(join(tmpdir(), "headers-for-firebase"));
+        await copyFile("test/fixtures/_headers", pathFor("_headers"));
+        await copyFile("test/fixtures/firebase.json", pathFor("firebase.json"));
+    });
+    afterEach(async () => {
+        await rm(tempDir, { recursive: true, force: true });
+    });
+
+    it("should append headers to firebase.json", async () => {
+        await addHeadersToFirebaseConfigFile(pathFor("_headers"), pathFor("firebase.json"));
+
+        await assertContentFiles(pathFor("firebase.json"), "test/fixtures/expected-firebase.json");
+    });
+
+    it("should fail if _headers does not exist", async () => {
+        try {
+            await addHeadersToFirebaseConfigFile(pathFor("missing_headers"), pathFor("firebase.json"));
+            expect.fail();
+        } catch (error) {
+            expect(error.code).to.include("ENOENT");
+            expect(error.message).to.include("missing_headers");
+        }
+    });
+
+    it("should fail if firebase.json does not exist", async () => {
+        try {
+            await addHeadersToFirebaseConfigFile(pathFor("_headers"), pathFor("missing_firebase.json"));
+            expect.fail();
+        } catch (error) {
+            expect(error.code).to.include("ENOENT");
+            expect(error.message).to.include("missing_firebase");
+        }
+    });
+
+    function pathFor(filename: string) {
+        return join(tempDir, filename);
+    }
+});
+
+async function assertContentFiles(actualFilePath: string, expectedFilePath: string) {
+    expect(await readFile(actualFilePath, "utf-8")).to.equal(await readFile(expectedFilePath, "utf-8"));
 }

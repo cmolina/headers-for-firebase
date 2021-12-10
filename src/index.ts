@@ -1,3 +1,24 @@
+import { readFile, writeFile } from "node:fs/promises";
+
+export async function addHeadersToFirebaseConfigFile(headersPath: string, firebasePath: string) {
+    const headersContent = await readFile(headersPath, "utf-8");
+    const headersArray = convertHeadersToFirebaseArray(headersContent);
+
+    const { configuration, space, endOfFile } = await readFirebaseConfigurationFrom(firebasePath);
+    configuration.hosting.headers.push(...headersArray);
+
+    const updatedContent = JSON.stringify(configuration, undefined, space) + endOfFile;
+    await writeFile(firebasePath, updatedContent, "utf-8");
+}
+
+async function readFirebaseConfigurationFrom(firebasePath: string) {
+    const firebaseContent = await readFile(firebasePath, "utf-8");
+    const configuration = JSON.parse(firebaseContent);
+    const { space } = firebaseContent.match(/^\{\n?(?<space>\s*)"/).groups;
+    const endOfFile = /\n$/.test(firebaseContent) ? "\n" : "";
+    return { configuration, space, endOfFile };
+}
+
 export function convertHeadersToFirebaseArray(headersContent: string) {
     const targets = getTargetsFrom(headersContent);
 

@@ -1,0 +1,87 @@
+{
+    "hosting": {
+        "public": "_site",
+        "headers": [
+            {
+                "source": "/existing-source.html",
+                "headers": [
+                    {
+                        "key": "X-Robots-Tag",
+                        "value": "noindex"
+                    }
+                ]
+            },
+            {
+                "source": "/**",
+                "headers": [
+                    {
+                        "key": "cache-control",
+                        "value": "public,max-age=300"
+                    },
+                    {
+                        "key": "X-Frame-Options",
+                        "value": "SAMEORIGIN"
+                    },
+                    {
+                        "key": "X-XSS-Protection",
+                        "value": "1; mode=block"
+                    }
+                ]
+            },
+            {
+                "source": "/img/**",
+                "headers": [
+                    {
+                        "key": "cache-control",
+                        "value": "public,max-age=31536000,immutable"
+                    }
+                ]
+            },
+            {
+                "source": "/js/**",
+                "headers": [
+                    {
+                        "key": "cache-control",
+                        "value": "public,max-age=31536000,immutable"
+                    }
+                ]
+            },
+            {
+                "source": "/fonts/**",
+                "headers": [
+                    {
+                        "key": "cache-control",
+                        "value": "public,max-age=31536000,immutable"
+                    }
+                ]
+            },
+            {
+                "source": "/favicon.svg",
+                "headers": [
+                    {
+                        "key": "cache-control",
+                        "value": "public,max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "/index.html",
+                "headers": [
+                    {
+                        "key": "Content-Security-Policy",
+                        "value": "default-src 'self';object-src 'none';script-src 'self' https://asciinema.org 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=' 'sha256-ACotEtBlkqjCUAsddlA/3p2h7Q0iHuDXxk577uNsXwA=';style-src 'unsafe-inline';img-src 'self' https://asciinema.org data:;frame-src https://asciinema.org"
+                    }
+                ]
+            },
+            {
+                "source": "/",
+                "headers": [
+                    {
+                        "key": "Content-Security-Policy",
+                        "value": "default-src 'self';object-src 'none';script-src 'self' https://asciinema.org 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=' 'sha256-ACotEtBlkqjCUAsddlA/3p2h7Q0iHuDXxk577uNsXwA=';style-src 'unsafe-inline';img-src 'self' https://asciinema.org data:;frame-src https://asciinema.org"
+                    }
+                ]
+            }
+        ]
+    }
+}
