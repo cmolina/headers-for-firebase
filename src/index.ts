@@ -1,5 +1,5 @@
-import { ParseFirebase } from "./parse-firebase";
-import { HeadersConverter } from "./headers-converter";
+import { ParseFirebase } from "./parse-firebase.js";
+import { HeadersConverter } from "./headers-converter.js";
 
 export async function addHeadersToFirebaseConfigFile(headersPath: string, firebasePath: string) {
     const { firebaseHeaders } = await HeadersConverter.createFromPath(headersPath);

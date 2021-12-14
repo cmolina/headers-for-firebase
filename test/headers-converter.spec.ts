@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { HeadersConverter } from "../src/headers-converter";
+import { HeadersConverter } from "../src/headers-converter.js";
 
 describe("HeadersConverter", () => {
     describe("number of targets", () => {

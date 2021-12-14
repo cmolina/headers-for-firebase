@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { addHeadersToFirebaseConfigFile } from "../src";
-import { assertContentFiles, TempDir } from "./file-utils";
+import { addHeadersToFirebaseConfigFile } from "../src/index.js";
+import { assertContentFiles, TempDir } from "./file-utils.js";
 
 describe("addHeadersToFirebaseConfigFile", () => {
     let tempDir: TempDir;

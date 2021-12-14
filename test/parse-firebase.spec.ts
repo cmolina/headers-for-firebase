@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import outdent from "outdent";
-import { ParseFirebase } from "../src/parse-firebase";
-import { assertContentFiles, TempDir } from "./file-utils";
+import { ParseFirebase } from "../src/parse-firebase.js";
+import { assertContentFiles, TempDir } from "./file-utils.js";
 
 describe("ParseFirebase", () => {
     let tempDir: TempDir;
