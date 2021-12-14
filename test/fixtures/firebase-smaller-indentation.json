@@ -1,0 +1,9 @@
+{
+  "hosting": {
+    "public": "_site",
+    "headers": [
+      /* _headers */
+      /* end _headers */
+    ]
+  }
+}

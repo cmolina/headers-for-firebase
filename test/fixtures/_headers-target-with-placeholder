@@ -1,0 +1,2 @@
+/movies/:title
+    Access-Control-Allow-Origin: *

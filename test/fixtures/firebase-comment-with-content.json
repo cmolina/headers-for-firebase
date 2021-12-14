@@ -1,0 +1,36 @@
+{
+    "hosting": {
+        "public": "_site",
+        "headers": [
+            {
+                "source": "/existing-source.html",
+                "headers": [
+                    {
+                        "key": "X-Robots-Tag",
+                        "value": "noindex"
+                    }
+                ]
+            },
+            {
+                "source": "/existing-source2.html",
+                "headers": [
+                    {
+                        "key": "X-Robots-Tag",
+                        "value": "noindex"
+                    }
+                ]
+            },
+            /* _headers */
+            {
+                "source": "/generated-source.html",
+                "headers": [
+                    {
+                        "key": "X-Robots-Tag",
+                        "value": "noindex"
+                    }
+                ]
+            }
+            /* end _headers */
+        ]
+    }
+}

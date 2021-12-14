@@ -10,8 +10,17 @@
                         "value": "noindex"
                     }
                 ]
-            }
+            },
             /* _headers */
+            {
+                "source": "/a-path.html",
+                "headers": [
+                    {
+                        "key": "X-Header",
+                        "value": "a value;"
+                    }
+                ]
+            }
             /* end _headers */
         ]
     }

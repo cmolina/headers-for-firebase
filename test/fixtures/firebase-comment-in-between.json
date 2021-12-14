@@ -10,9 +10,18 @@
                         "value": "noindex"
                     }
                 ]
-            }
+            },
             /* _headers */
             /* end _headers */
+            {
+                "source": "/existing-source2.html",
+                "headers": [
+                    {
+                        "key": "X-Robots-Tag",
+                        "value": "noindex"
+                    }
+                ]
+            }
         ]
     }
 }

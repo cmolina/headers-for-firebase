@@ -1,0 +1,4 @@
+/*
+    Access-Control-Allow-Origin: *
+/secure/page
+    X-Frame-Options: DENY

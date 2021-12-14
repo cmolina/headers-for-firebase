@@ -2,6 +2,17 @@
     "hosting": {
         "public": "_site",
         "headers": [
+            /* _headers */
+            {
+                "source": "/a-path.html",
+                "headers": [
+                    {
+                        "key": "X-Header",
+                        "value": "a value;"
+                    }
+                ]
+            },
+            /* end _headers */
             {
                 "source": "/existing-source.html",
                 "headers": [
@@ -11,8 +22,6 @@
                     }
                 ]
             }
-            /* _headers */
-            /* end _headers */
         ]
     }
 }

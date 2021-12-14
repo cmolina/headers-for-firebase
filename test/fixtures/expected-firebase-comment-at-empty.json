@@ -2,16 +2,16 @@
     "hosting": {
         "public": "_site",
         "headers": [
+            /* _headers */
             {
-                "source": "/existing-source.html",
+                "source": "/a-path.html",
                 "headers": [
                     {
-                        "key": "X-Robots-Tag",
-                        "value": "noindex"
+                        "key": "X-Header",
+                        "value": "a value;"
                     }
                 ]
             }
-            /* _headers */
             /* end _headers */
         ]
     }
