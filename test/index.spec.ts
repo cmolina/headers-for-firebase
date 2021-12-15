@@ -15,9 +15,10 @@ describe("addHeadersToFirebaseConfigFile", () => {
         await tempDir.remove();
     });
 
-    it("should append headers to firebase.json", async () => {
-        await addHeadersToFirebaseConfigFile(tempDir.getPathFor("_headers"), tempDir.getPathFor("firebase.json"));
+    it("should append 7 headers to firebase.json", async () => {
+        const numberOfAddedTargets = await addHeadersToFirebaseConfigFile(tempDir.getPathFor("_headers"), tempDir.getPathFor("firebase.json"));
 
+        expect(numberOfAddedTargets).to.equal(7);
         await assertContentFiles(tempDir.getPathFor("firebase.json"), "test/fixtures/expected-firebase.json");
     });
 

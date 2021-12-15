@@ -1,12 +1,13 @@
 {
   "name": "headers-for-firebase",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Converts _headers file to entries within a .firebase.json file",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": "dist/cli.js",
   "type": "module",
   "scripts": {
     "prepublishOnly": "tsc",
@@ -29,6 +30,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "cac": "^6.7.12",
     "comment-json": "^4.1.1"
   }
 }

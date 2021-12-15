@@ -6,4 +6,5 @@ export async function addHeadersToFirebaseConfigFile(headersPath: string, fireba
     const parsed = await ParseFirebase.createFromPath(firebasePath);
     parsed.insertHeaders(firebaseHeaders);
     await parsed.writeFile();
+    return firebaseHeaders.length;
 }

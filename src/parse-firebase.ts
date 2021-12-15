@@ -20,9 +20,10 @@ export class ParseFirebase {
 
         if (this.insertIndex === undefined || this.deleteCount === undefined) {
             throw new Error(outdent`
-                Please make sure you include the following comments within "hosting.headers":
+                Please make sure you include the following comments within "hosting.headers" at "${firebasePath}":
                     /* _headers */
                     /* end _headers */
+                the new headers will appear between the comments.
             `);
         }
     }

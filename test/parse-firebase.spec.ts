@@ -84,9 +84,10 @@ describe("ParseFirebase", () => {
                 expect.fail();
             } catch (error) {
                 expect(error.message).to.equal(outdent`
-                    Please make sure you include the following comments within "hosting.headers":
+                    Please make sure you include the following comments within "hosting.headers" at "${tempDir.getPathFor("firebase-no-comment.json")}":
                         /* _headers */
                         /* end _headers */
+                    the new headers will appear between the comments.
                 `);
             }
         });
