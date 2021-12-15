@@ -1,6 +1,6 @@
 {
   "name": "headers-for-firebase",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts _headers file to entries within a .firebase.json file",
   "files": [
     "dist"
