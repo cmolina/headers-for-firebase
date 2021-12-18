@@ -15,7 +15,7 @@ describe("addHeadersToFirebaseConfigFile", () => {
         await tempDir.remove();
     });
 
-    it("should append 7 headers to firebase.json", async () => {
+    it("should append 7 sorted headers to firebase.json", async () => {
         const numberOfAddedTargets = await addHeadersToFirebaseConfigFile(tempDir.getPathFor("_headers"), tempDir.getPathFor("firebase.json"));
 
         expect(numberOfAddedTargets).to.equal(7);
